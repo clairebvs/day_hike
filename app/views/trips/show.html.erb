@@ -1,6 +1,7 @@
 <%= @trip.name %>
 
 Total distance : <%= @trip.total_distance %>
+Average distance : <%= @trip.average_distance %>
 
 <% @trip.trails.each do |trail| %>
   <%= trail.name %>

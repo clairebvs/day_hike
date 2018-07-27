@@ -21,18 +21,34 @@ describe 'A visitor' do
       trail_1 = trip.trails.create(length: 2, name: 'high pic', address: '32 road')
       trail_2 = trip.trails.create(length: 4, name: 'low pic', address: '34 trail')
 
-      visit trip_path(trip) 
+      visit trip_path(trip)
 
       expected_result = 6
       expect(page).to have_content(expected_result)
+    end
+
+    it 'sees average trip distance of all trails ' do
+      trip = Trip.create(name: 'mountain', start_date: '02/03/2018', end_date: '04/05/2018')
+      trail_1 = trip.trails.create(length: 2, name: 'high pic', address: '32 road')
+      trail_2 = trip.trails.create(length: 4, name: 'low pic', address: '34 trail')
+
+      visit trip_path(trip)
+      expected_result = 3
+
+      expect(page).to have_content("Average distance : #{expected_result}")
     end
   end
 end
 
 =begin
 
+As a visitor,
+when I visit a hiking trip's page,
+I see the average hiking distance
+of all trails on that hiking trip
+As a visitor,
 
 when I visit a hiking trip's page,
-I see the total hiking distance
-of all trails on that hiking trip
+I see the longest hiking distance
+from all trails on that hiking trip
 =end
