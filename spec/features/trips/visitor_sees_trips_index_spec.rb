@@ -18,14 +18,3 @@ describe 'A visitor' do
     end
   end
 end
-
-=begin
-As a visitor,
-when I visit the hiking trips index page,
-I see a list of all hiking trip names in
-the database.
-As a visitor,
-when I visit the hiking trips index page,
-and I click on the name of a hiking trip,
-I see a unique page for that hiking trip.
-=end
