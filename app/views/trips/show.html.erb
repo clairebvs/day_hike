@@ -6,7 +6,9 @@ Longest distance : <%= @trip.longest_distance %>
 Shortest distance : <%= @trip.shortest_distance %>
 
 <% @trip.trails.each do |trail| %>
-  <%= trail.name %>
-  <%= trail.address %>
-  <%= trail.length %>
+  <div id="trail-<%=trail.id%>">
+    <%= link_to "#{trail.name}", trail_path(trail) %>
+    <%= trail.address %>
+    <%= trail.length %>
+  </div>
 <% end %>
